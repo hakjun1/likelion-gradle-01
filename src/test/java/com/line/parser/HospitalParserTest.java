@@ -19,5 +19,7 @@ class HospitalParserTest {
        Assertions.assertEquals("A1120837",hospital.getId());
         //address pasrsing
         Assertions.assertEquals(address,hospital.getAddress());
+        //District
+        Assertions.assertEquals("서울특별시 금천구",hospital.getDistrict());
     }
 }

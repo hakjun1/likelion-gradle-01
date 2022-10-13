@@ -9,13 +9,22 @@ public class Hospital {
     private String name; //snake camel
     private String subdivision; // snake camel
 
-    public Hospital(String id) {
-        this.id = id.replaceAll("\"","");
+
+    private String replaceAllQuot(String str){
+        return str.replaceAll("\"","");
+    }
+    public Hospital(String id, String address) {
+        this.id = replaceAllQuot(id);
+        this.address = replaceAllQuot(address);
     }
 
-    public Hospital(String id, String address) {
+    public Hospital(String id, String address, String category, Integer emergencyRoom, String name, String subdivision) {
         this.id = id;
         this.address = address;
+        this.category = category;
+        this.emergencyRoom = emergencyRoom;
+        this.name = name;
+        this.subdivision = subdivision;
     }
 
     public String getAddress() {
@@ -23,7 +32,8 @@ public class Hospital {
     }
 
     public String getDistrict() {
-        return district;
+        String[] splitted = this.address.split(" ");
+        return String.format("%s %s",splitted[0],splitted[1]);
     }
 
     public String getCategory() {
